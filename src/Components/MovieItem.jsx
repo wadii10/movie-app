@@ -1,8 +1,8 @@
 import React from 'react';
-import { Card } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
 import StarRating from './StarRating';
 
-const MovieItem = ({ item }) => {
+const MovieItem = ({ item, del }) => {
     return <div>
         <Card style={{ width: '19rem' }}>
             <Card.Img variant="top" src={item.imageSrc} />
@@ -12,6 +12,7 @@ const MovieItem = ({ item }) => {
                     <StarRating rating={item.rating} />
                     <h3> {item.date} </h3>
                 </Card.Text>
+                <Button variant="primary" onClick={() => del(item.id)} > Delete </Button>
             </Card.Body>
         </Card>
     </div>;

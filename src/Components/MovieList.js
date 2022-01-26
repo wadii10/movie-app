@@ -1,10 +1,10 @@
 import React from 'react';
 import MovieItem from './MovieItem';
 
-const MovieList = ({list}) => {
+const MovieList = (props) => {
   return <div className='movie-list' >
 {
-    list.map((el,i) => <MovieItem item={el} key={i} /> )
+    props.list.map((el,i) => <MovieItem item={el} key={i} del={props.delete} /> )
 }
   </div>;
 };

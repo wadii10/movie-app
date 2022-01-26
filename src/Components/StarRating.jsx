@@ -1,10 +1,10 @@
 import React from 'react';
 
-const StarRating = ({ rating }) => {
+const StarRating = ({ rating, handleRating }) => {
     const star = (rating) => {
         var tab = [];
         for (let i = 1; i <= 5; i++) {
-            i <= rating ? tab.push(<span>★</span>) : tab.push(<span>☆</span>)
+            i <= rating ? tab.push(<span onClick={()=>handleRating(i)} style={{cursor:"pointer"}} >★</span>) : tab.push(<span onClick={()=>handleRating(i)} style={{cursor:"pointer"}} >☆</span>)
         }
         return tab;
     };
@@ -12,5 +12,9 @@ const StarRating = ({ rating }) => {
         {star(rating)}
     </div>;
 };
+
+StarRating.defaultProps = {
+    handleRating:()=>{}
+}
 
 export default StarRating;
