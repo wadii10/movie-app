@@ -1,10 +1,10 @@
 import React from 'react';
 import StarRating from './StarRating';
 
-const Search = () => {
+const Search = ({text, handleChange, handleChangeRating, rating}) => {
   return <div>
-      <input placeholder='search' />
-      <StarRating />
+      <input placeholder='search' value={text} onChange={(e) => handleChange(e.target.value)}  />
+      <StarRating handleRating={handleChangeRating} rating={rating} />
   </div>;
 };
 
