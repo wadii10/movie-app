@@ -8,6 +8,7 @@ import Search from "./Components/Search";
 
 function App() {
   const [movies, setMovies] = useState(data);
+  //state for search
   const [text, setText] = useState("");
   const [rating, setRating] = useState(0);
 
@@ -20,6 +21,11 @@ function App() {
   const add = (newMovie) => {
     setMovies([...movies, newMovie]);
   };
+
+  //update movie(edit)
+  const update = (updateMovie) => {
+    setMovies( movies.map( (movie) => movie.id === updateMovie.id ? { ...movie, ...updateMovie } : movie )  ) ;
+  }
 
   //handle change TextSearch
   const handleCahngeSearch = (x) => {
@@ -38,7 +44,7 @@ function App() {
         <AddMovie add={add} />
       </header>
       <MovieList list={ movies.filter(movie => movie.name.toLowerCase().includes(text.toLowerCase()) 
-        && movie.rating>= rating) }  delete={handleDelete} />
+        && movie.rating>= rating) }  delete={handleDelete} update={update}  />
     </div>
   );
 }

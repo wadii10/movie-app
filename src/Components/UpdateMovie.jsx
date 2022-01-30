@@ -1,33 +1,35 @@
 import React, { useState } from 'react';
-import { Button, Form } from 'react-bootstrap';
 import Modal from 'react-modal';
+import { Button, Form } from 'react-bootstrap';
 import StarRating from './StarRating';
 
-const AddMovie = ({ add }) => {
+const UpdateMovie = ({ item, update }) => {
 
-    const [name, setName] = useState("");
-    const [imageSrc, setImageSrc] = useState("");
-    const [date, setDate] = useState("");
-    const [rating, setRating] = useState(1);
+    const [name, setName] = useState(item.name);
+    const [imageSrc, setImageSrc] = useState(item.imageSrc);
+    const [date, setDate] = useState(item.date);
+    const [rating, setRating] = useState(item.rating);
 
-    //change the rating
+    //update the rating
     const handleRating = (x) => {
         setRating(x);
     };
 
-    //submit
-    const handleSubmit = (e) => {
+    //handle update
+    const handleUpdate = (e) => {
         e.preventDefault();
-        const newMovie = {
-            id: Math.random(), name, imageSrc, date, rating
+
+        const updateMovie = {
+            id: item.id,
+            name,
+            imageSrc,
+            date,
+            rating
         }
-        add(newMovie);
-        setName("");
-        setImageSrc("");
-        setDate("");
-        setRating("");
+        update(updateMovie);
         closeModal();
-    };
+    }
+
 
     // modal
     const customStyles = {
@@ -54,18 +56,18 @@ const AddMovie = ({ add }) => {
     Modal.setAppElement('#root');
 
     return <div>
-        <Button className='up up-1' onClick={openModal}>Add Movie</Button>
-
+        <Button variant="secondary" onClick={openModal}> Update </Button>
         <Modal
             isOpen={modalIsOpen}
             onRequestClose={closeModal}
             style={customStyles}
             contentLabel="Example Modal"
         >
-            <Form onSubmit={handleSubmit}>
+            <Form onSubmit={handleUpdate}>
+
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                    {/* <Form.Label>'Movie Title'</Form.Label> */}
-                    <Form.Control type="text" placeholder='Movie Title' value={name} onChange={(e) => setName(e.target.value)} />
+                    {/* <Form.Label>Movie Title</Form.Label> */}
+                    <Form.Control type="text" placeholder='Movie Title'  value={name} onChange={(e) => setName(e.target.value)} />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -76,17 +78,18 @@ const AddMovie = ({ add }) => {
                 <StarRating rating={rating} handleRating={handleRating} />
 
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                    {/* <Form.Label>'Movie Date'</Form.Label> */}
-                    <Form.Control type="date"  value={date} onChange={(e) => setDate(e.target.value)} />
+                    {/* <Form.Label>date</Form.Label> */}
+                    <Form.Control type="text" value={date} onChange={(e) => setDate(e.target.value)} />
                 </Form.Group>
 
-                <div className='btn-add' >
-                    <Button variant="primary" type="submit" > Add </Button>
+                <div className='btn-update' >
+                    <Button variant="primary" type="submit" > Update </Button>
                     <Button variant="secondary" onClick={() => closeModal()}> Cancel </Button>
                 </div>
+
             </Form>
         </Modal>
     </div>;
 };
 
-export default AddMovie;
+export default UpdateMovie;

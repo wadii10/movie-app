@@ -14,3 +14,53 @@
   justify-content: space-around;
   padding: 1rem;
 }
+
+.btn-add,
+.btn-update,
+.btn-card {
+  display: flex;
+  text-align: center;
+  justify-content: space-around;
+}
+
+header {
+  /* position: sticky;
+  top: 0;
+  z-index: 1; */
+  background-color: black;
+  font-size: 2rem;
+  text-align: center;
+  display: block;
+  color: blanchedalmond;
+  padding-bottom: 1rem;
+}
+
+.movie-card {
+  margin-top: 1rem;
+  padding-top: 2rem;
+}
+
+.movie-card:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+
+.up {
+  flex: 1 1 auto;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 0.5rem;
+  border: none;
+  /* text-shadow: 0px 0px 10px rgba(0,0,0,0.2); */
+  /* box-shadow: 0 0 20px #eee; */
+ }
+
+.up:hover {
+  background-position: right center; /* change the direction of the change here */
+}
+
+.up-1 {
+  background-image: linear-gradient(to right, #f6d365 0%, #fda085 51%, #f6d365 100%);
+}
