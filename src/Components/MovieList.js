@@ -4,7 +4,7 @@ import MovieItem from './MovieItem';
 const MovieList = (props) => {
   return <div className='movie-list' >
 {
-    props.list.map((el,i) => <MovieItem item={el} key={i} del={props.delete} update={props.update} /> )
+   React.Children.toArray(props.list.map((el) => <MovieItem item={el}  del={props.delete} update={props.update} /> ))
 }
   </div>;
 };

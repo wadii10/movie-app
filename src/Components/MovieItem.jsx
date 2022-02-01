@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import StarRating from './StarRating';
 import UpdateMovie from './UpdateMovie';
 
@@ -18,7 +19,8 @@ const MovieItem = ({ item, del, update }) => {
                 </Card.Text>
                 <div className="btn-card">
                 <Button variant="primary" onClick={() => del(item.id)} > Delete </Button>
-                <UpdateMovie item={item} update={update} /> 
+                <UpdateMovie item={item} update={update} />
+                <Link to={`/detail/${item.id}`} ><Button variant="primary" > Detail </Button></Link>
                 </div>
             </Card.Body>
         </Card>

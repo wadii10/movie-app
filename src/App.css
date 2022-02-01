@@ -40,6 +40,11 @@ header {
   padding-top: 2rem;
 }
 
+.card-detail {
+  margin-top: 1rem;
+  padding-top: 2rem;
+}
+
 .movie-card:hover {
   cursor: pointer;
   transform: scale(1.05);
@@ -52,7 +57,7 @@ header {
   background-size: 200% auto;
   color: white;
   border-radius: 0.5rem;
-  border: none;
+  border: none ;
   /* text-shadow: 0px 0px 10px rgba(0,0,0,0.2); */
   /* box-shadow: 0 0 20px #eee; */
  }
