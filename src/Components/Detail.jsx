@@ -7,7 +7,7 @@ const Detail = ({ match, dataDetail }) => {
 
     const item = dataDetail.find(el => el.id == match.params.id)
 
-    return <div className='card-detail'>
+    return <div className='card-detail' style={{marginLeft:"39%"}}>
 
         
                     <Card style={{ width: '19rem', height: '40rem' }}>
